@@ -1,0 +1,8 @@
+{
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.linting.pylintArgs": ["--good-names=i,j,k,ex,Run,_,pk,x,y,z,e"]
+}

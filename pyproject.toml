@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dxf_patterner"
+version = "0.0.1"
+authors = [
+  { name="Ronny Kjøløymo", email="author@example.com" },
+]
+description = "Generating .dxf files with flattpatterns of different shapes"
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/coming soon!"
+"Bug Tracker" = "https://github.com/coming soon!"
