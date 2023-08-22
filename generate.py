@@ -50,9 +50,28 @@ class Miter:
             points.append((x, y))
         return points
 
+    def end_segment(self) -> list:
+        points = self.curvepoints()
+        return points + [(p[0],0) for p in points[::-1]]
+
+    def full_segment(self) -> list:
+        points = self.curvepoints()
+        return points + mirror_axis(points[::-1], 'y')
+
     def output_dxf(self) -> None:
         """Make a dxf file with the patterns from (x, y) coordinates"""
         pass
+
+
+def mirror_axis(line: list, axis: str, offset: int | float = 0):
+    """Mirror x (leftmost) or y (rightmost) axis"""
+    print(f"axis = {axis}")
+    if axis == "x":
+        print("running x")
+        return [(2 * offset - x, y) for x, y in line]
+    else:
+        print("running y")
+        return [(x, 2 * offset - y) for x, y in line]
 
 
 def x_arround_circle(radius, num_points):
