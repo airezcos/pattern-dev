@@ -52,15 +52,18 @@ class Miter:
 
     def end_segment(self) -> list:
         points = self.curvepoints()
-        return points + [(p[0],0) for p in points[::-1]]
+        return points + [(points[-1][0], 0), (0, 0)]
 
     def full_segment(self) -> list:
         points = self.curvepoints()
         return points + mirror_axis(points[::-1], 'y')
 
-    def output_dxf(self) -> None:
-        """Make a dxf file with the patterns from (x, y) coordinates"""
-        pass
+    def objects(self) -> tuple[list]:
+        return ([],)
+
+def output_dxf(object) -> None:
+    """Make a dxf file with the patterns from (x, y) coordinates"""
+    pass
 
 
 def mirror_axis(line: list, axis: str, offset: int | float = 0):

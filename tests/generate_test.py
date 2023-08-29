@@ -30,10 +30,35 @@ half = [
     (approx(41.88790204), approx(12.05771366)),
     (approx(62.83185306), approx(16.07695155)),
     (approx(62.83185306), approx(0)),
+    (approx(0), approx(0)),
+]
+
+full_inverted = [
+    (approx(0), approx(10.7179677)),
+    (approx(20.94395102), approx(14.73720558)),
+    (approx(41.88790204), approx(14.73720558)),
+    (approx(62.83185306), approx(10.7179677)),
+    (approx(62.83185306), approx(-10.7179677)),
+    (approx(41.88790204), approx(-14.73720558)),
+    (approx(20.94395102), approx(-14.73720558)),
+    (approx(0), approx(-10.7179677)),
+]
+
+half_inverted = [
+    (approx(0), approx(10.7179677)),
+    (approx(20.94395102), approx(14.73720558)),
+    (approx(41.88790204), approx(14.73720558)),
+    (approx(62.83185306), approx(10.7179677)),
+    (approx(62.83185306), approx(0)),
     (approx(41.88790204), approx(0)),
     (approx(20.94395102), approx(0)),
     (approx(0), approx(0)),
 ]
+
+
+objects = ()
+
+gap_multiplier = 1.4
 
 
 def test_miter_points():
@@ -53,6 +78,12 @@ def test_full_segment():
     miter = Miter(40, 90, 10, 4, 3)
     full_segment = miter.full_segment()
     assert full_segment == full
+
+
+def test_miter_objects():
+    miter = Miter(40, 90, 10, 4, 3)
+    miter_objects = miter.objects()
+    assert miter_objects == objects
 
 
 def test_mirror():
