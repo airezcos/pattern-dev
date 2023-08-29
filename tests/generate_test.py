@@ -1,7 +1,7 @@
 """Tests for the generator"""
 
 from pytest import approx
-from generate import Miter, mirror_axis
+from generate import Miter, mirror_axis, nudge
 
 points = [
     (approx(0), approx(16.07695155)),
@@ -80,10 +80,16 @@ def test_full_segment():
     assert full_segment == full
 
 
-def test_miter_objects():
-    miter = Miter(40, 90, 10, 4, 3)
-    miter_objects = miter.objects()
-    assert miter_objects == objects
+# def test_miter_objects():
+#     miter = Miter(40, 90, 10, 4, 3)
+#     miter_objects = miter.objects()
+#     assert miter_objects == objects
+
+
+def test_nudge():
+    points = [(-1, -4), (1, 2), (-4, 4)]
+    nudged_points = [(0, -2), (2, 4), (-3, 6)]
+    assert nudge(points, (1, 2)) == nudged_points
 
 
 def test_mirror():

@@ -63,6 +63,13 @@ class Miter:
     def objects(self) -> tuple[list]:
         return ([],)
 
+
+def nudge(points, offset) -> list:
+    """Nudge a list in the direction of offset, relative to (0, 0)"""
+    add_x, add_y = offset
+    return [(x + add_x, y + add_y) for x, y in points]
+
+
 def output_dxf(object) -> None:
     """Make a dxf file with the patterns from (x, y) coordinates"""
     pass
