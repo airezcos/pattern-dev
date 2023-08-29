@@ -61,8 +61,3 @@ def test_mirror():
     mirrored_y_offset = [(1, 5), (-2, 3), (3, 0)]
     assert mirror_axis(line, "x") == mirrored_x
     assert mirror_axis(line, "y", 2) == mirrored_y_offset
-
-
-def test_pass():
-    """Always passing test"""
-    assert True
