@@ -37,9 +37,11 @@ class Miter:
             {self.pipe_radius}, {self.miter_segments})"
 
     def curvepoints(self) -> list:
-        """Generate (x, y) coordinates for the points making the lines of the flatpattern"""
+        """Generate (x, y) coordinates for the points making the lines of the
+        flatpattern"""
         points = []
-        segment_length = (2 * math.pi * self.pipe_radius) / self.pattern_segments
+        circumference = 2 * math.pi * self.pipe_radius
+        segment_length = circumference / self.pattern_segments
         for i in range(self.pattern_segments + 1):
             x = i * segment_length
             miter_angle = self.bend_angle / (2 * (self.miter_segments - 1))
@@ -56,7 +58,7 @@ class Miter:
 
     def full_segment(self) -> list:
         points = self.curvepoints()
-        return points + mirror_axis(points[::-1], 'y')
+        return points + mirror_axis(points[::-1], "y")
 
     def objects(self) -> tuple[list]:
         return ([],)
